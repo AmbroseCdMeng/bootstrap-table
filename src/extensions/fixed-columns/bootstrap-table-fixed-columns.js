@@ -90,16 +90,16 @@ $.BootstrapTable = class extends $.BootstrapTable {
     //  this.$fixedBody.find('table').css('top', -$(e.currentTarget).scrollTop())
     //})
 
-    this.$tableBody.off('scroll.fixed-columns').on('scroll.fixed-columns', function (e) {
-        _this.$fixedBody.scrollTop($(e.currentTarget).scrollTop());
-    });
-    this.$fixedBody.off('mousewheel').on('mousewheel', function (e) {
-        if(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){
-          _this.$tableBody.scrollTop($(e.currentTarget).scrollTop() - 25);
-        } else {
-          _this.$tableBody.scrollTop($(e.currentTarget).scrollTop() + 25);
-        }
-        e.preventDefault();
+    this.$tableBody.off('scroll.fixed-columns').on('scroll.fixed-columns', e => {
+      this.$fixedBody.scrollTop($(e.currentTarget).scrollTop());
+    })
+	  this.$fixedBody.off('mousewheel').on('mousewheel', e => {
+      if(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){
+        this.$tableBody.scrollTop($(e.currentTarget).scrollTop() - 25);
+      } else {
+        this.$tableBody.scrollTop($(e.currentTarget).scrollTop() + 25);
+      }
+      e.preventDefault();
     });
     
     this.$body.find('> tr[data-index]').off('hover').hover(e => {
