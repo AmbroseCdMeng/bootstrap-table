@@ -25,3 +25,12 @@
   position: absolute;
   animation: none;
 }
+
+.fixed-table-body-columns::-webkit-scrollbar {
+    display: none;
+}
+
+.fixed-table-body-columns {
+    -ms-overflow-style: none;
+    overflow-y: auto;
+}
